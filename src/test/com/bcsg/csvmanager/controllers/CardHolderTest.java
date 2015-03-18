@@ -1,17 +1,17 @@
 package test.com.bcsg.csvmanager.controllers;
 
-import static org.junit.Assert.*;
-
+import java.com.bcsg.csvmanager.controllers.CardHolder;
 import java.com.bcsg.csvmanager.models.CreditCard;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class CardHolderTest {
+	private CardHolder cardHolder;
+	
 	private CreditCard card1;
 	private String HSBCCanadaMaskedNumber;
 	private CreditCard card2;
@@ -52,9 +52,28 @@ public class CardHolderTest {
 		sortedCreditCards.add(card2);
 	}
 
+	
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void maskCardsNumberTest() {
+		List<CreditCard> creditCards = new ArrayList<CreditCard>();
+		creditCards.add(card1);
+		
+		cardHolder = new CardHolder(creditCards);
+		cardHolder.maskCardsNumber();
+		
+		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(0).getNumber() ,
+				HSBCCanadaMaskedNumber.equals(cardHolder.get(0).getNumber()));
+		
+	}
+	
+	@Test
+	public void sortCardsTest() {
+		
+	}
+	
+	@Test
+	public void displayCreditCardTest() {
+		
 	}
 
 }
