@@ -3,16 +3,15 @@ package java.com.bcsg.csvmanager.controllers;
 import java.com.bcsg.csvmanager.models.CreditCard;
 import java.util.List;
 
-public class CardManager {
+public class CardHolder {
 
 	private List<CreditCard> creditCards;
 	
-	public void setCreditCards(List<CreditCard> creditCards)
-	{
-		this.creditCards = creditCards;
+	public void setCreditCards(List<CreditCard> creditsCards) {
+		
 	}
 	
-	public void maskAllCardNumber() {
+	public void maskCardsNumber() {
 		
 	}
 	

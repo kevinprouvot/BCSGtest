@@ -1,7 +1,7 @@
 package java.com.bcsg.csvmanager;
 
 import java.com.bcsg.csvmanager.controllers.CSVReader;
-import java.com.bcsg.csvmanager.controllers.CardManager;
+import java.com.bcsg.csvmanager.controllers.CardHolder;
 
 public class main {
 
@@ -9,12 +9,11 @@ public class main {
 		final String csvName = "mid-test.csv";
 		
 		CSVReader csvReader = new CSVReader();
-		CardManager cardManager = new CardManager();
+		CardHolder cardHolder = csvReader.read(csvName);
 		
-		cardManager.setCreditCards(csvReader.read(csvName));
-		cardManager.maskAllCardNumber();
-		cardManager.sortCards();
-		cardManager.displayCreditCard();
+		cardHolder.maskCardsNumber();
+		cardHolder.sortCards();
+		cardHolder.displayCreditCard();
 		
 	}
 
