@@ -2,14 +2,21 @@ package test.com.bcsg.csvmanager.controllers;
 
 import static org.junit.Assert.fail;
 
+import java.com.bcsg.csvmanager.controllers.CSVReader;
+import java.com.bcsg.csvmanager.controllers.CardHolder;
 import java.com.bcsg.csvmanager.models.CreditCard;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
 public class CSVReaderTest {
+	
+	private CSVReader csvReader;
+	
+	private final String csvName = "mid-test.csv";
 	
 	private CreditCard card1;
 	private String HSBCCanadaMaskedNumber;
@@ -22,6 +29,8 @@ public class CSVReaderTest {
 
 	@Before
 	public void setUp() throws Exception {
+		csvReader = new CSVReader();
+		
 		card1 = new CreditCard();
 		card1.setBank("HSBC Canada");
 		card1.setExpiryDate("Nov-2017");
@@ -52,8 +61,20 @@ public class CSVReaderTest {
 	}
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void readTest() {
+		CardHolder cardHolder = csvReader.read(csvName);
+		
+		Assert.assertTrue("Incorrect Size, : " + cardHolder.size(), 
+				3 == cardHolder.size());
+		
+		Assert.assertTrue("Incorrect Card Information (Bank) : " + cardHolder.get(0).getBank(),
+				card1.getBank().equals(cardHolder.get(0).getBank()));
+		
+		Assert.assertTrue("Incorrect Card Information (ExpiryDate) : " + cardHolder.get(0).getExpiryDate(),
+				card1.getExpiryDate().equals(cardHolder.get(0).getExpiryDate()));
+		
+		Assert.assertTrue("Incorrect Card Information (Number) : " + cardHolder.get(0).getNumber(),
+				card1.getNumber().equals(cardHolder.get(0).getNumber()));
 	}
 
 }
