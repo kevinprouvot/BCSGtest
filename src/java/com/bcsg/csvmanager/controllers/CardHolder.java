@@ -7,16 +7,16 @@ public class CardHolder {
 
 	private List<CreditCard> creditCards;
 	
+	public CardHolder(List<CreditCard> creditCards) {
+		this.creditCards = creditCards;
+	}
+	
 	public int size() {
 		return creditCards.size();
 	}
 	
 	public CreditCard get(int index) {
 		return creditCards.get(index);
-	}
-	
-	public void setCreditCards(List<CreditCard> creditsCards) {
-		
 	}
 	
 	public void maskCardsNumber() {
