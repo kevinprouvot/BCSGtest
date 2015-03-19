@@ -11,6 +11,7 @@ public class Main {
 		CSVReader csvReader = new CSVReader();
 		CardHolder cardHolder = csvReader.read(csvName);
 		
+		// Think about wrapping that into a class
 		cardHolder.maskCardsNumber();
 		cardHolder.sortCards();
 		cardHolder.displayCreditCard();
