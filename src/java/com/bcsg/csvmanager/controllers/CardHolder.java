@@ -19,6 +19,10 @@ public class CardHolder {
 		return creditCards.get(index);
 	}
 	
+	public List<CreditCard> getCreditCards() {
+		return creditCards;
+	}
+	
 	public void maskCardsNumber() {
 		
 	}

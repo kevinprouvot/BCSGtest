@@ -57,6 +57,8 @@ public class CardHolderTest {
 	public void maskCardsNumberTest() {
 		List<CreditCard> creditCards = new ArrayList<CreditCard>();
 		creditCards.add(card1);
+		creditCards.add(card2);
+		creditCards.add(card3);
 		
 		cardHolder = new CardHolder(creditCards);
 		cardHolder.maskCardsNumber();
@@ -64,11 +66,27 @@ public class CardHolderTest {
 		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(0).getNumber() ,
 				HSBCCanadaMaskedNumber.equals(cardHolder.get(0).getNumber()));
 		
+		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(1).getNumber() ,
+				RoyalBankCanadaMaskedNumber.equals(cardHolder.get(0).getNumber()));
+		
+		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(2).getNumber() ,
+				AmericanExpress.equals(cardHolder.get(0).getNumber()));
+		
 	}
 	
 	@Test
 	public void sortCardsTest() {
+		cardHolder = new CardHolder(unsortedCreditCards);
+		cardHolder.sortCards();
 		
+		Assert.assertTrue("cards are not correctly sorted",
+				cardHolder.getCreditCards().get(0) == sortedCreditCards.get(0));
+
+		Assert.assertTrue("cards are not correctly sorted",
+				cardHolder.getCreditCards().get(1) == sortedCreditCards.get(1));
+
+		Assert.assertTrue("cards are not correctly sorted",
+				cardHolder.getCreditCards().get(2) == sortedCreditCards.get(2));
 	}
 	
 	@Test
