@@ -10,6 +10,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bcsg.csvmanager.controllers.CardHolder;
+import com.bcsg.csvmanager.exceptions.BankUnknownException;
 import com.bcsg.csvmanager.models.Bank;
 import com.bcsg.csvmanager.models.CreditCard;
 
@@ -58,7 +59,7 @@ public class CardHolderTest {
 
 	
 	@Test
-	public void maskCardsNumberTest() {
+	public void maskCardsNumberTest() throws BankUnknownException{
 		cardHolder = new CardHolder(unsortedCreditCards);
 		cardHolder.maskCardsNumber();
 		
