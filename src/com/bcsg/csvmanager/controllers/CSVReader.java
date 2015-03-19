@@ -1,4 +1,4 @@
-package java.com.bcsg.csvmanager.controllers;
+package com.bcsg.csvmanager.controllers;
 
 
 public class CSVReader {

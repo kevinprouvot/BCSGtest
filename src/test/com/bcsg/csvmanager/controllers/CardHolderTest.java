@@ -1,7 +1,5 @@
 package test.com.bcsg.csvmanager.controllers;
 
-import java.com.bcsg.csvmanager.controllers.CardHolder;
-import java.com.bcsg.csvmanager.models.CreditCard;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
@@ -10,6 +8,9 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import com.bcsg.csvmanager.controllers.CardHolder;
+import com.bcsg.csvmanager.models.CreditCard;
 
 public class CardHolderTest {
 	private CardHolder cardHolder;

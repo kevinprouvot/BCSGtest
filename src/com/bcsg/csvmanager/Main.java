@@ -1,7 +1,7 @@
-package java.com.bcsg.csvmanager;
+package com.bcsg.csvmanager;
 
-import java.com.bcsg.csvmanager.controllers.CSVReader;
-import java.com.bcsg.csvmanager.controllers.CardHolder;
+import com.bcsg.csvmanager.controllers.CSVReader;
+import com.bcsg.csvmanager.controllers.CardHolder;
 
 public class Main {
 
@@ -14,7 +14,6 @@ public class Main {
 		cardHolder.maskCardsNumber();
 		cardHolder.sortCards();
 		cardHolder.displayCreditCard();
-		
 	}
 
 }

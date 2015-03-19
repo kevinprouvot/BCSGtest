@@ -1,7 +1,8 @@
-package java.com.bcsg.csvmanager.controllers;
+package com.bcsg.csvmanager.controllers;
 
-import java.com.bcsg.csvmanager.models.CreditCard;
 import java.util.List;
+
+import com.bcsg.csvmanager.models.CreditCard;
 
 public class CardHolder {
 
