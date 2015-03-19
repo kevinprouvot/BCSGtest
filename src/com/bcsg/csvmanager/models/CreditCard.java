@@ -6,7 +6,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-public class CreditCard {
+public class CreditCard implements Comparable<CreditCard>{
 	
 	private String number;
 	private Bank bank;
@@ -62,5 +62,25 @@ public class CreditCard {
 		stringBuffer.append(getExpiryDateAsString());
 		
 		return stringBuffer.toString();
+	}
+
+	/**
+	 * In order to sort CreditCard :
+	 * Ordered by Expiry date in descending order.
+	 */
+	@Override
+	public int compareTo(CreditCard creditCard) {
+		int result = 0;
+		
+		if (this.expiryDate.after(creditCard.getExpiryDate())) {
+			result = -1;
+		}
+		else {
+			if (this.expiryDate.before(creditCard.getExpiryDate())) {
+				result = 1;
+			}
+		}
+		
+		return result;
 	}
 }

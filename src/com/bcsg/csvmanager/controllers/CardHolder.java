@@ -1,6 +1,7 @@
 package com.bcsg.csvmanager.controllers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.bcsg.csvmanager.exceptions.BankUnknownException;
@@ -112,8 +113,12 @@ public class CardHolder {
 		creditCard.setNumber(maskedCardNumber.toString());
 	}
 	
+	/**
+	 * Sort credit cards
+	 * Ordered by Expiry date in descending order.
+	 */
 	public void sortCards() {
-		
+		Collections.sort(creditCards);
 	}
 	
 	public void displayCreditCard() {

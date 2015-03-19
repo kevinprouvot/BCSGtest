@@ -24,7 +24,7 @@ public class mainTest {
 	@Before
 	public void setUp() throws Exception {
 		card1 = new CreditCard();
-		card1.setBank(Bank.ROYAL_BANK_OF_CANADA);
+		card1.setBank(Bank.HSBC_CANADA);
 		card1.setExpiryDate("Nov-2017");
 		card1.setNumber("56xx-xxxx-xxxx-xxxx");
 		
@@ -66,8 +66,8 @@ public class mainTest {
 		
 		Main.main(new String[1]);
 		
-		Assert.assertTrue("Output is incorrent : " + outContent,
-				stringBuffer.toString().equals(outContent));		
+		Assert.assertTrue("Output is incorrent : " + outContent.toString(),
+				stringBuffer.toString().equals(outContent.toString()));		
 		
 		System.setOut(null);
 	}
