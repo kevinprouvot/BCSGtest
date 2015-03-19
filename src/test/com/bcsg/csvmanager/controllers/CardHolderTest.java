@@ -92,26 +92,17 @@ public class CardHolderTest {
 		System.setOut(new PrintStream(outContent));
 		
 		final String SEPARATOR = " ";
+		final String ENDLINE = "\\n";
 		
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(card1.getBank());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card1.getNumber());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card1.getExpiryDate());
-		stringBuffer.append("\\n");
-		stringBuffer.append(card2.getBank());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card2.getNumber());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card2.getExpiryDate());
-		stringBuffer.append("\\n");
-		stringBuffer.append(card3.getBank());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card3.getNumber());
-		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(card3.getExpiryDate());
-		stringBuffer.append("\\n");
+		for (CreditCard card : unsortedCreditCards) {
+			stringBuffer.append(card.getBank());
+			stringBuffer.append(SEPARATOR);
+			stringBuffer.append(card.getNumber());
+			stringBuffer.append(SEPARATOR);
+			stringBuffer.append(card.getExpiryDate());
+			stringBuffer.append(ENDLINE);
+		}
 		
 		cardHolder = new CardHolder(unsortedCreditCards);
 		cardHolder.displayCreditCard();
