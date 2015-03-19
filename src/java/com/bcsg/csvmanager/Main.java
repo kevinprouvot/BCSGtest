@@ -3,7 +3,7 @@ package java.com.bcsg.csvmanager;
 import java.com.bcsg.csvmanager.controllers.CSVReader;
 import java.com.bcsg.csvmanager.controllers.CardHolder;
 
-public class main {
+public class Main {
 
 	public static void main(String[] args) {
 		final String csvName = "mid-test.csv";
