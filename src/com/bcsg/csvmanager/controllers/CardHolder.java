@@ -25,6 +25,12 @@ public class CardHolder {
 	}
 	
 	public void maskCardsNumber() {
+		for(CreditCard creditCard : creditCards) {
+			maskCardNumber(creditCard);
+		}
+	}
+	
+	private void maskCardNumber(CreditCard creditCard) {
 		
 	}
 	

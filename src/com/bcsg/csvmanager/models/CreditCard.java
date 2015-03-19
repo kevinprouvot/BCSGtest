@@ -29,4 +29,18 @@ public class CreditCard {
 	public void setExpiryDate(String expiryDate) {
 		this.expiryDate = expiryDate;
 	}
+	
+	@Override
+	public String toString() {
+		final String SEPARATOR = " ";
+		
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(bank);
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(number);
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(expiryDate);
+		
+		return stringBuffer.toString();
+	}
 }
