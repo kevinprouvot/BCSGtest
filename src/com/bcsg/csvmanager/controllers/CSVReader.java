@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.bcsg.csvmanager.models.Bank;
 import com.bcsg.csvmanager.models.CreditCard;
 
 
@@ -33,7 +34,10 @@ public class CSVReader {
 				CreditCard card = new CreditCard();
 				String[] cardInformation = line.split(CSV_SEPARATOR);
 				
-				card.setBank(cardInformation[0]);
+				String bankName = cardInformation[0];
+				Bank bank = getbank(bankName);
+				
+				card.setBank(bank);
 				card.setNumber(cardInformation[1]);
 				card.setExpiryDate(cardInformation[2]);
 				creditCards.add(card);
@@ -65,5 +69,17 @@ public class CSVReader {
 		stringBuffer.append(fileName);
 		
 		return stringBuffer.toString();
+	}
+	
+	private Bank getbank(String bankName) {
+		Bank bankResult = Bank.UNKNOWN_BANK;
+		
+		for (Bank bank : Bank.values()) {
+			if(bank.toString().equals(bankName)) {
+				bankResult = bank;
+			}
+		}
+		
+		return bankResult;
 	}
 }

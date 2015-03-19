@@ -3,7 +3,7 @@ package com.bcsg.csvmanager.models;
 public class CreditCard {
 	
 	private String number;
-	private String bank;
+	private Bank bank;
 	private String expiryDate;
 	
 	public String getNumber() {
@@ -14,11 +14,11 @@ public class CreditCard {
 		this.number = number;
 	}
 	
-	public String getBank() {
+	public Bank getBank() {
 		return bank;
 	}
 	
-	public void setBank(String bank) {
+	public void setBank(Bank bank) {
 		this.bank = bank;
 	}
 	
@@ -35,7 +35,7 @@ public class CreditCard {
 		final String SEPARATOR = " ";
 		
 		StringBuffer stringBuffer = new StringBuffer();
-		stringBuffer.append(bank);
+		stringBuffer.append(bank.toString());
 		stringBuffer.append(SEPARATOR);
 		stringBuffer.append(number);
 		stringBuffer.append(SEPARATOR);

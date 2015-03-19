@@ -24,17 +24,17 @@ public class mainTest {
 	@Before
 	public void setUp() throws Exception {
 		card1 = new CreditCard();
-		card1.setBank(Bank.ROYAL_BANK_OF_CANADA.toString());
+		card1.setBank(Bank.ROYAL_BANK_OF_CANADA);
 		card1.setExpiryDate("Nov-2017");
 		card1.setNumber("56xx-xxxx-xxxx-xxxx");
 		
 		card2 = new CreditCard();
-		card2.setBank(Bank.ROYAL_BANK_OF_CANADA.toString());
+		card2.setBank(Bank.ROYAL_BANK_OF_CANADA);
 		card2.setExpiryDate("Oct-2017");
 		card2.setNumber("4519-xxxx-xxxx-xxxx");
 		
 		card3 = new CreditCard();
-		card3.setBank(Bank.AMERICAN_EXPRESS.toString());
+		card3.setBank(Bank.AMERICAN_EXPRESS);
 		card3.setExpiryDate("Dec-2018");
 		card3.setNumber("xxxx-xxxx-xxxx-345");
 
@@ -56,7 +56,7 @@ public class mainTest {
 		
 		StringBuffer stringBuffer = new StringBuffer();
 		for (CreditCard card : sortedAndMaskedCreditCards) {
-			stringBuffer.append(card.getBank());
+			stringBuffer.append(card.getBank().toString());
 			stringBuffer.append(SEPARATOR);
 			stringBuffer.append(card.getNumber());
 			stringBuffer.append(SEPARATOR);
