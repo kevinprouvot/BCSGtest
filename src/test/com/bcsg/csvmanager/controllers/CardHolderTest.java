@@ -2,6 +2,8 @@ package test.com.bcsg.csvmanager.controllers;
 
 import java.com.bcsg.csvmanager.controllers.CardHolder;
 import java.com.bcsg.csvmanager.models.CreditCard;
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,12 +57,7 @@ public class CardHolderTest {
 	
 	@Test
 	public void maskCardsNumberTest() {
-		List<CreditCard> creditCards = new ArrayList<CreditCard>();
-		creditCards.add(card1);
-		creditCards.add(card2);
-		creditCards.add(card3);
-		
-		cardHolder = new CardHolder(creditCards);
+		cardHolder = new CardHolder(unsortedCreditCards);
 		cardHolder.maskCardsNumber();
 		
 		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(0).getNumber() ,
@@ -91,7 +88,38 @@ public class CardHolderTest {
 	
 	@Test
 	public void displayCreditCardTest() {
+		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(outContent));
 		
+		final String SEPARATOR = " ";
+		
+		StringBuffer stringBuffer = new StringBuffer();
+		stringBuffer.append(card1.getBank());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card1.getNumber());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card1.getExpiryDate());
+		stringBuffer.append("\\n");
+		stringBuffer.append(card2.getBank());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card2.getNumber());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card2.getExpiryDate());
+		stringBuffer.append("\\n");
+		stringBuffer.append(card3.getBank());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card3.getNumber());
+		stringBuffer.append(SEPARATOR);
+		stringBuffer.append(card3.getExpiryDate());
+		stringBuffer.append("\\n");
+		
+		cardHolder = new CardHolder(unsortedCreditCards);
+		cardHolder.displayCreditCard();
+		Assert.assertTrue("Output is incorrent",
+				stringBuffer.toString().equals(outContent));
+		
+		
+		System.setOut(null);
 	}
 
 }
