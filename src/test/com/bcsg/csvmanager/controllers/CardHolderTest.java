@@ -103,7 +103,7 @@ public class CardHolderTest {
 			stringBuffer.append(SEPARATOR);
 			stringBuffer.append(card.getNumber());
 			stringBuffer.append(SEPARATOR);
-			stringBuffer.append(card.getExpiryDate());
+			stringBuffer.append(card.getExpiryDateAsString());
 			stringBuffer.append(ENDLINE);
 		}
 		

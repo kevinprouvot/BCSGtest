@@ -1,10 +1,18 @@
 package com.bcsg.csvmanager.models;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class CreditCard {
 	
 	private String number;
 	private Bank bank;
-	private String expiryDate;
+	private Date expiryDate;
+	
+	public static DateFormat dateFormat = new SimpleDateFormat("MMM-yyyy", Locale.ENGLISH);
 	
 	public String getNumber() {
 		return number;
@@ -22,12 +30,20 @@ public class CreditCard {
 		this.bank = bank;
 	}
 	
-	public String getExpiryDate() {
+	public Date getExpiryDate() {
 		return expiryDate;
 	}
 	
-	public void setExpiryDate(String expiryDate) {
+	public String getExpiryDateAsString() {
+		return CreditCard.dateFormat.format(expiryDate);
+	}
+	
+	public void setExpiryDate(Date expiryDate) {
 		this.expiryDate = expiryDate;
+	}
+	
+	public void setExpiryDate(String expiryDateAsString) throws ParseException{
+	    this.expiryDate = CreditCard.dateFormat.parse(expiryDateAsString);
 	}
 	
 	public int getNumberLength() {
@@ -43,7 +59,7 @@ public class CreditCard {
 		stringBuffer.append(SEPARATOR);
 		stringBuffer.append(number);
 		stringBuffer.append(SEPARATOR);
-		stringBuffer.append(expiryDate);
+		stringBuffer.append(getExpiryDateAsString());
 		
 		return stringBuffer.toString();
 	}
