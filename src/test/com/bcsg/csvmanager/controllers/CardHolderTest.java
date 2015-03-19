@@ -94,8 +94,8 @@ public class CardHolderTest {
 		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 		
-		final String SEPARATOR = " ";
-		final String ENDLINE = "\\n";
+		final Character SEPARATOR = ' ';
+		final Character ENDLINE = '\n';
 		
 		StringBuffer stringBuffer = new StringBuffer();
 		for (CreditCard card : unsortedCreditCards) {
@@ -109,9 +109,8 @@ public class CardHolderTest {
 		
 		cardHolder = new CardHolder(unsortedCreditCards);
 		cardHolder.displayCreditCard();
-		Assert.assertTrue("Output is incorrent",
-				stringBuffer.toString().equals(outContent));
-		
+		Assert.assertTrue("Output is incorrent : " + outContent ,
+				stringBuffer.toString().equals(outContent.toString()));
 		
 		System.setOut(null);
 	}

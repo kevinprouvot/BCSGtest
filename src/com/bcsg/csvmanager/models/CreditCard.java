@@ -36,7 +36,7 @@ public class CreditCard {
 	
 	@Override
 	public String toString() {
-		final String SEPARATOR = " ";
+		final Character SEPARATOR = ' ';
 		
 		StringBuffer stringBuffer = new StringBuffer();
 		stringBuffer.append(bank.toString());

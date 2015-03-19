@@ -51,8 +51,8 @@ public class mainTest {
 		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 		
-		final String SEPARATOR = " ";
-		final String ENDLINE = "\\n";
+		final Character SEPARATOR = ' ';
+		final Character ENDLINE = '\n';
 		
 		StringBuffer stringBuffer = new StringBuffer();
 		for (CreditCard card : sortedAndMaskedCreditCards) {
@@ -66,7 +66,7 @@ public class mainTest {
 		
 		Main.main(new String[1]);
 		
-		Assert.assertTrue("Output is incorrent",
+		Assert.assertTrue("Output is incorrent : " + outContent,
 				stringBuffer.toString().equals(outContent));		
 		
 		System.setOut(null);

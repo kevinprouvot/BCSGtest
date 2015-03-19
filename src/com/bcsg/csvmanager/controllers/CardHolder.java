@@ -12,7 +12,7 @@ public class CardHolder {
 	private List<CreditCard> unknowBankcards;
 	
 	private final Character DIGIT_SEPARATOR = '-';
-	private final String MASKED_DIGIT = "x";
+	private final Character MASKED_DIGIT = 'x';
 	
 	public CardHolder(List<CreditCard> creditCards) {
 		this.creditCards = creditCards;
@@ -117,6 +117,8 @@ public class CardHolder {
 	}
 	
 	public void displayCreditCard() {
-		
+		for(CreditCard creditCard : creditCards) {
+			System.out.println(creditCard.toString());
+		}
 	}
 }
