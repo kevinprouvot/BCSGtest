@@ -30,6 +30,10 @@ public class CreditCard {
 		this.expiryDate = expiryDate;
 	}
 	
+	public int getNumberLength() {
+		return number.length();
+	}
+	
 	@Override
 	public String toString() {
 		final String SEPARATOR = " ";

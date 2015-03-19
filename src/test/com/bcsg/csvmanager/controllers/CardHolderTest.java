@@ -67,10 +67,10 @@ public class CardHolderTest {
 				HSBCCanadaMaskedNumber.equals(cardHolder.get(0).getNumber()));
 		
 		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(1).getNumber() ,
-				RoyalBankCanadaMaskedNumber.equals(cardHolder.get(0).getNumber()));
+				RoyalBankCanadaMaskedNumber.equals(cardHolder.get(1).getNumber()));
 		
 		Assert.assertTrue("card number is not masked. Current : " + cardHolder.get(2).getNumber() ,
-				AmericanExpress.equals(cardHolder.get(0).getNumber()));
+				AmericanExpress.equals(cardHolder.get(2).getNumber()));
 		
 	}
 	
