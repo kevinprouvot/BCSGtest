@@ -31,10 +31,6 @@ public class CardHolder {
 		
 	}
 	
-	private void maskCardNumber(CreditCard creditCard) {
-		
-	}
-	
 	public void displayCreditCard() {
 		
 	}

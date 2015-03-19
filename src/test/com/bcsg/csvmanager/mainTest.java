@@ -1,19 +1,14 @@
 package test.com.bcsg.csvmanager;
 
-import static org.junit.Assert.*;
-
 import java.com.bcsg.csvmanager.Main;
-import java.com.bcsg.csvmanager.controllers.CardHolder;
 import java.com.bcsg.csvmanager.models.CreditCard;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class mainTest {
@@ -26,8 +21,6 @@ public class mainTest {
 
 	@Before
 	public void setUp() throws Exception {
-		
-		
 		card1 = new CreditCard();
 		card1.setBank("HSBC Canada");
 		card1.setExpiryDate("Nov-2017");
@@ -53,7 +46,6 @@ public class mainTest {
 
 	@Test
 	public void test() {
-		
 		final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 		System.setOut(new PrintStream(outContent));
 		
@@ -70,8 +62,7 @@ public class mainTest {
 			stringBuffer.append(ENDLINE);
 		}
 		
-		Main main = new Main();
-		main.main(new String[1]);
+		Main.main(new String[1]);
 		
 		Assert.assertTrue("Output is incorrent",
 				stringBuffer.toString().equals(outContent));		
